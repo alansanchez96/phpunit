@@ -15,6 +15,10 @@ class QueRopaOfertar
 
     public function determina(string $ciudad): string
     {
+        if ($ciudad === '' || null) {
+            throw new \Exception('La ciudad no puede estar vacía');
+        }
+
         $temperatura = $this->api->queTemperaturaHaceEn($ciudad);
         $categoria = 'Camisas';
 
